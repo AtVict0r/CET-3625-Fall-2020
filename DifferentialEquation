@@ -1,0 +1,26 @@
+load symbolic
+syms t y(t)
+
+fprintf('Question 1\n------------------------------------------\n')
+Dy = diff(y,t);
+eqn = diff(y,t,2) + 4*Dy + 4*y == exp(-2*t);
+cond = [y(0) == 0, Dy(0) == 4];
+ySol(t) = dsolve(eqn, cond)
+
+fprintf('\nQuestion 2\n------------------------------------------\n')
+Dy = diff(y,t);
+eqn = diff(y,t,2) + y == sin(t);
+cond = [y(0) == 1, Dy(0) == 4];
+ySol(t) = dsolve(eqn, cond)
+
+fprintf('\nQuestion 3\n------------------------------------------\n')
+Dy = diff(y,t);
+eqn = diff(y,t,2) - 6*Dy + 9*y == t*exp(3*t);
+cond = [y(0) == 1, Dy(0) == 4];
+ySol(t) = dsolve(eqn, cond)
+
+fprintf('\nQuestion 4\n------------------------------------------\n')
+Dy = diff(y,t);
+eqn = diff(y,t,2) + 2*Dy + 10*y == -6*exp(-t)*sin(3*t);
+cond = [y(0) == 0, Dy(0) == 1];
+ySol(t) = dsolve(eqn, cond)
